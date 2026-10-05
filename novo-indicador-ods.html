@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo indicador ODS</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="novo-indicador-estrategico.css">
+  <link rel="stylesheet" href="novo-indicador-ods.css">
+</head>
+<body class="strategic-system-page ods-system-page">
+  <header class="topbar strategic-topbar">
+    <div class="brand"><strong>PMO-ES</strong><span>PE 2023-2026</span></div>
+    <a class="strategic-home" href="index.html" aria-label="Voltar aos indicadores">◆</a>
+    <div class="breadcrumbs" aria-label="Caminho do novo indicador ODS">
+      <span class="separator">›</span>
+      <div class="crumb"><em>Portfólio</em><small>Realiza+</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wide"><em>Eixo</em><small>Eixo 1: +Qualidade de vida</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wider"><em>Área Temática</em><small>Educação, Cultura, Esporte e Lazer</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Programa</em><small>Cultura ES</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Projeto</em><small>Cais das Artes</small></div>
+      <span class="separator">›</span>
+      <div class="crumb current ods-crumb"><em>Indicador</em><small>ODS</small></div>
+    </div>
+  </header>
+
+  <main class="strategic-system-content ods-system-content">
+    <h1>Novo Indicador ODS</h1>
+    <form id="odsPageForm">
+      <section class="strategic-properties" id="odsProperties">
+        <button type="button" class="strategic-section-heading" id="toggleOdsProperties" aria-expanded="true">
+          <span>PROPRIEDADES</span><b>⌃</b>
+        </button>
+        <div class="strategic-properties-body ods-properties-body">
+          <label class="ods-page-search">
+            <span>Objetivos de Desenvolvimento Sustentável (ODS)</span>
+            <span class="ods-page-search-box"><input id="odsPageSearch" type="search" placeholder="Procurar" aria-label="Procurar ODS"><i aria-hidden="true">⌕</i></span>
+          </label>
+
+          <div class="ods-page-options" id="odsPageOptions">
+            <label><input type="checkbox" value="Saúde e bem-estar" data-code="1556135"><span>Saúde e bem-estar</span></label>
+            <label><input type="checkbox" value="Educação de qualidade" data-code="1556136"><span>Educação de qualidade</span></label>
+            <label><input type="checkbox" value="Igualdade de gênero" data-code="1556137"><span>Igualdade de gênero</span></label>
+            <label><input type="checkbox" value="Água potável e saneamento" data-code="1556138"><span>Água potável e saneamento</span></label>
+            <label><input type="checkbox" value="Energia limpa e acessível" data-code="1556139"><span>Energia limpa e acessível</span></label>
+            <label><input type="checkbox" value="Trabalho decente e crescimento econômico" data-code="1556140"><span>Trabalho decente e crescimento econômico</span></label>
+            <label><input type="checkbox" value="Indústria, inovação e infraestrutura" data-code="1556141"><span>Indústria, inovação e infraestrutura</span></label>
+            <label><input type="checkbox" value="Redução das desigualdades" data-code="1556142"><span>Redução das desigualdades</span></label>
+            <label><input type="checkbox" value="Cidades e comunidades sustentáveis" data-code="1556143"><span>Cidades e comunidades sustentáveis</span></label>
+            <label><input type="checkbox" value="Consumo e produção responsáveis" data-code="1556144"><span>Consumo e produção responsáveis</span></label>
+            <label><input type="checkbox" value="Ação contra a mudança global do clima" data-code="1556145"><span>Ação contra a mudança global do clima</span></label>
+            <label><input type="checkbox" value="Vida na água" data-code="1556146"><span>Vida na água</span></label>
+            <label><input type="checkbox" value="Vida terrestre" data-code="1556147"><span>Vida terrestre</span></label>
+            <label><input type="checkbox" value="Paz, justiça e instituições eficazes" data-code="1556148"><span>Paz, justiça e instituições eficazes</span></label>
+            <label><input type="checkbox" value="Parcerias e meios de implementação" data-code="1556149"><span>Parcerias e meios de implementação</span></label>
+          </div>
+
+          <div class="strategic-actions ods-page-actions">
+            <a href="index.html" class="back-action">Cancelar</a>
+            <button type="reset" class="reset-action">Restaurar</button>
+            <button type="submit" class="filter-action" id="saveOdsPage" disabled>Adicionar <span id="odsPageCount">0</span></button>
+          </div>
+        </div>
+      </section>
+    </form>
+  </main>
+  <script src="novo-indicador-ods.js"></script>
+</body>
+</html>

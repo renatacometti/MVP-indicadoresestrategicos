@@ -1,0 +1,27 @@
+.new-indicator-page { margin:0; min-height:100vh; background:#ededec; border-top:0; }
+.new-indicator-main { padding:12px 0 32px 39px; }
+.new-indicator-main h1 { margin:0 0 7px; color:#004e6c; font-size:15px; font-weight:500; }
+.new-properties { min-height:530px; background:#fff; padding:12px 16px 16px; }
+.new-properties h2 { margin:0 0 12px; color:#00506e; font-size:15px; font-weight:500; }
+.new-field { display:block; color:#817a89; font-size:14px; }
+.new-field > span:first-child { display:block; margin-bottom:4px; }
+.new-field i { display:inline-grid; place-items:center; width:14px; height:14px; margin-left:8px; border:2px solid #d3d7d8; border-radius:50%; color:#bdc4c6; font-size:9px; font-style:normal; vertical-align:1px; }
+.new-field input, .new-field textarea, .new-field select { display:block; width:100%; min-height:29px; border:0; border-bottom:1px solid #b5ccd3; border-radius:0; background:transparent; color:#005478; outline:none; padding:2px 0 6px; }
+.new-field input:focus, .new-field textarea:focus, .new-field select:focus { border-bottom-color:#43b5a6; }
+.name-field { width:432px; }
+.description-new-field { width:100%; margin-top:4px; }
+.description-new-field textarea { min-height:45px; resize:vertical; }
+.required-message { display:block; width:max-content; margin-top:11px; padding:4px 8px; border-radius:5px; background:#f53e3b; color:#fff; font-size:11px; font-weight:600; }
+.description-new-field .required-message { margin-top:16px; }
+.new-field.valid .required-message { display:none; }
+.new-field.invalid input, .new-field.invalid textarea { border-bottom-color:#f53e3b; }
+.new-field-stack { width:288px; display:grid; gap:13px; margin-top:5px; }
+.new-field-stack select { appearance:auto; }
+.new-date { display:flex !important; align-items:center; border-bottom:1px solid #b5ccd3; }
+.new-date input { border:0; flex:1; }
+.new-date button { width:38px; border:0; background:transparent; color:#005478; font-size:18px; }
+.new-form-actions { display:flex; justify-content:flex-end; gap:10px; padding:16px 18px; background:#fff; border-top:1px solid #edf0f0; }
+.new-form-actions a, .new-form-actions button { min-width:86px; padding:9px 16px; border-radius:4px; text-align:center; text-decoration:none; }
+.new-form-actions a { color:#536b76; border:1px solid #b9c5c8; background:#fff; }
+.new-form-actions button { border:1px solid #43b5a6; background:#43b5a6; color:#fff; }
+@media (max-width:700px) { .new-indicator-main { padding:10px; }.new-properties { min-height:0; }.name-field, .new-field-stack { width:100%; } }

@@ -1,0 +1,78 @@
+.strategic-system-page { min-height:100vh; margin:0; background:#ededec; border-top:0; }
+.strategic-topbar { height:74px; padding-left:20px; align-items:flex-end; }
+.strategic-topbar .brand { left:20px; }
+.strategic-home { width:40px; height:34px; display:grid; place-items:center; margin-right:2px; color:#d2dcdf; font-size:27px; text-decoration:none; transform:rotate(45deg); }
+.strategic-topbar .breadcrumbs { gap:4px; }
+.strategic-crumb { width:126px !important; }
+.strategic-system-content { padding:16px 31px 40px 50px; }
+.strategic-system-content > h1 { margin:0 0 7px; color:#00506e; font-size:15px; font-weight:500; }
+.strategic-properties { background:#fff; }
+.strategic-section-heading { width:100%; height:39px; border:0; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:0 17px; color:#00506e; font-size:14px; text-align:left; }
+.strategic-section-heading b { color:#6d7d87; font-size:23px; transition:transform .18s ease; }
+.strategic-properties.collapsed .strategic-section-heading b { transform:rotate(180deg); }
+.strategic-properties.collapsed .strategic-properties-body { display:none; }
+.strategic-properties-body { min-height:489px; padding:2px 16px 18px; position:relative; }
+.strategic-fields { width:432px; display:grid; gap:18px; }
+.strategic-fields > label, .strategic-field-group { display:block; color:#7a7480; font-size:14px; position:relative; }
+.strategic-fields > label > span, .strategic-field-group > span { display:block; margin-bottom:3px; }
+.strategic-fields select { width:100%; height:31px; border:0; border-bottom:1px solid #b5ccd3; border-radius:0; background:transparent; padding:2px 0 7px; color:#005478; outline:none; }
+.strategic-fields select:focus { border-bottom-color:#43b5a6; }
+.strategic-fields select:disabled { color:#a5b2b8; cursor:not-allowed; background:#f8f9f9; }
+.strategic-multiselect { position:relative; }
+.strategic-multiselect > button { width:100%; height:31px; border:0; border-bottom:1px solid #b5ccd3; background:transparent; display:flex; align-items:center; justify-content:space-between; padding:2px 2px 7px 0; color:#005478; text-align:left; }
+.strategic-multiselect > button b { font-size:17px; font-weight:500; }
+.strategic-multiselect.disabled > button { color:#a5b2b8; cursor:not-allowed; background:#f8f9f9; }
+.strategic-area-options { position:absolute; z-index:5; top:32px; left:0; width:100%; max-height:245px; overflow-y:auto; border:1px solid #cbd5da; border-radius:0 0 3px 3px; background:#fff; box-shadow:0 6px 14px #273b4530; }
+.strategic-area-options label { min-height:40px; display:flex; align-items:flex-start; gap:12px; padding:9px 10px; border-bottom:1px solid #e7ebed; color:#183a4d; font-size:14px; line-height:1.35; cursor:pointer; }
+.strategic-area-options label:hover { background:#f4f8f8; }
+.strategic-area-options label[hidden] { display:none; }
+.strategic-area-options input { appearance:none; width:14px; height:14px; margin:2px 0 0; border:1px solid #87979f; border-radius:2px; flex:0 0 auto; display:grid; place-items:center; }
+.strategic-area-options input:checked { border-color:#43b5a6; background:#43b5a6; }
+.strategic-area-options input:checked::after { content:'✓'; color:#fff; font-size:10px; font-weight:700; }
+.strategic-challenge-options { max-height:260px; }
+.strategic-indicator-field { width:680px; max-width:calc(100vw - 120px); }
+.strategic-indicator-options { max-height:300px; }
+.strategic-indicator-search { position:sticky; top:0; z-index:2; height:42px; display:flex; align-items:center; border-bottom:1px solid #dce4e7; background:#fff; padding:0 10px; }
+.strategic-indicator-search input { flex:1; min-width:0; height:100%; border:0; outline:none; color:#244a5d; }
+.strategic-indicator-search i { color:#1268ff; font-size:21px; font-style:normal; }
+.strategic-indicator-options .select-all-indicators { color:#0759eb; font-weight:600; text-transform:uppercase; font-size:11px; }
+.strategic-indicator-options .indicator-option { font-size:12px; text-transform:uppercase; }
+.strategic-actions { position:absolute; right:18px; bottom:18px; display:flex; justify-content:flex-end; align-items:center; gap:9px; }
+.strategic-actions a, .strategic-actions button { min-width:104px; padding:9px 15px; border-radius:4px; text-align:center; text-decoration:none; text-transform:uppercase; font-size:11px; font-weight:600; }
+.back-action { border:1px solid #bdc9ce; color:#596b74; background:#fff; }
+.reset-action { border:1px solid #f29b11; color:#ed9206; background:#fff; }
+.filter-action { border:1px solid #13b887; color:#fff; background:#13b887; }
+.strategic-result { margin-top:14px; padding:17px 20px; border-left:4px solid #43b5a6; background:#fff; color:#335565; }
+.strategic-result p { margin:6px 0 0; }
+.selected-indicators { margin-top:15px; padding:16px 0 24px; background:transparent; }
+.selected-indicators h2 { margin:0 0 12px; color:#00506e; font-size:14px; font-weight:500; }
+.selected-indicators h2 span { color:#e8364f; }
+.selected-indicator-grid { display:grid; grid-template-columns:repeat(3, minmax(280px, 352px)); gap:15px; align-items:start; }
+.selected-indicator-card { min-height:390px; border:1px solid #dde1e2; border-radius:4px; padding:15px 16px 17px; background:#fff; box-shadow:0 1px 2px #172d3730; color:#66717d; }
+.selected-card-header { min-height:56px; display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding-bottom:8px; }
+.selected-card-header h3 { margin:0; color:#17232a; font-size:15px; line-height:1.38; text-transform:none; }
+.selected-card-header button { border:0; background:none; color:#89969c; font-size:25px; line-height:20px; }
+.selected-card-meta { display:grid; grid-template-columns:1fr 1fr; gap:9px 10px; margin:6px 0 14px; font-size:11px; }
+.selected-card-meta p { margin:0; min-height:43px; padding:3px 0 7px; border-bottom:1px solid #c1d1d6; line-height:1.5; }
+.selected-card-meta p:last-child { grid-column:1 / -1; }
+.selected-card-meta b, .selected-card-label { display:block; color:#7a7480; text-transform:none; font-size:12px; font-weight:400; }
+.selected-card-meta span { color:#43b5a6; }
+.selected-card-label { margin:12px 0 6px; }
+.indicator-meta-grid, .project-goals-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px 10px; }
+.indicator-meta, .project-goal { min-height:38px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:5px 0 7px; border:0; border-bottom:1px solid #c1d1d6; border-radius:0; background:transparent; color:#005478; font-size:12px; font-weight:400; }
+.indicator-meta b { color:#43b5a6; }
+.project-goal { position:relative; min-height:47px; }
+.project-goal::after { content:'*'; position:absolute; right:6px; top:1px; color:#e8364f; font-size:9px; }
+.project-goal input { width:94px; height:31px; border:0; border-bottom:1px solid #aac5cd; border-radius:0; background:#fff; padding:0 4px; text-align:right; color:#31566d; font-size:11px; font-weight:400; }
+.project-goal input::placeholder { color:#bbcad8; }
+.selected-indicator-actions { display:flex; align-items:center; gap:40px; margin-top:34px; padding-bottom:8px; }
+.selected-indicator-actions button { height:44px; border:0; border-radius:5px; padding:0 30px; color:#fff; font-family:inherit; font-size:20px; font-weight:400; box-shadow:0 3px 10px #1d344326; cursor:pointer; transition:filter .15s ease, transform .15s ease; display:inline-flex; align-items:center; justify-content:center; }
+.selected-indicator-actions button:hover { filter:brightness(.97); }
+.selected-indicator-actions button:active { transform:translateY(1px); }
+.save-indicators-action { min-width:120px; background:#43b5a6; }
+.undo-indicators-action { min-width:172px; background:#ffbd00; }
+.undo-indicators-action span { display:inline-block; margin-right:5px; font-size:28px; line-height:1; }
+@media (max-width:1120px) { .selected-indicator-grid { grid-template-columns:repeat(2, minmax(280px, 352px)); } }
+@media (max-width:760px) { .selected-indicator-grid { grid-template-columns:minmax(0, 1fr); }.selected-card-meta { grid-template-columns:1fr; }.selected-card-meta p:last-child { grid-column:auto; } }
+@media (max-width:900px) { .strategic-topbar .breadcrumbs { transform:scale(.78); transform-origin:left bottom; width:128%; }.strategic-system-content { padding:16px; } }
+@media (max-width:600px) { .strategic-topbar { overflow:hidden; }.strategic-home { flex:0 0 34px; }.strategic-topbar .breadcrumbs { transform:scale(.62); width:155%; }.strategic-system-content { padding:12px 8px 28px; }.strategic-properties-body { min-height:470px; }.strategic-fields { width:100%; }.strategic-actions { position:static; flex-wrap:wrap; margin-top:26px; }.strategic-actions a, .strategic-actions button { flex:1; }.selected-indicator-actions { gap:12px; }.selected-indicator-actions button { flex:1; min-width:0; padding:0 15px; font-size:17px; } }

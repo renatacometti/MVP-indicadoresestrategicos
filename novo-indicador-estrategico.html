@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo indicador estratégico</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="novo-indicador-estrategico.css">
+</head>
+<body class="strategic-system-page">
+  <header class="topbar strategic-topbar">
+    <div class="brand"><strong>PMO-ES</strong><span>PE 2023-2026</span></div>
+    <a class="strategic-home" href="index.html" aria-label="Voltar aos indicadores">◆</a>
+    <div class="breadcrumbs" aria-label="Caminho do novo indicador estratégico">
+      <span class="separator">›</span>
+      <div class="crumb"><em>Portfólio</em><small>Realiza+</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wide"><em>Eixo</em><small>Eixo 1: +Qualidade de vida</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wider"><em>Área Temática</em><small>Educação, Cultura, Esporte e Lazer</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Programa</em><small>Cultura ES</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Projeto</em><small>Cais das Artes</small></div>
+      <span class="separator">›</span>
+      <div class="crumb current strategic-crumb"><em>Indicador</em><small>Indicador estratégico</small></div>
+    </div>
+  </header>
+
+  <main class="strategic-system-content">
+    <h1>Novo Indicador Estratégico</h1>
+    <form id="strategicFilterForm">
+      <section class="strategic-properties" id="strategicProperties">
+        <button type="button" class="strategic-section-heading" id="toggleStrategicProperties" aria-expanded="true">
+          <span>PROPRIEDADES</span><b>⌃</b>
+        </button>
+        <div class="strategic-properties-body">
+          <div class="strategic-fields">
+            <label>
+              <span>Gestão Administrativa</span>
+              <select id="management" aria-label="Gestão Administrativa">
+                <option value="gestao-2023-26">Gestão 2023-26</option>
+              </select>
+            </label>
+            <label>
+              <span>Eixo</span>
+              <select id="strategicAxis" aria-label="Eixo">
+                <option value="" selected>Selecionar...</option>
+                <option value="qualidade-vida">Eixo 1: +Qualidade de vida</option>
+                <option value="sustentabilidade">Eixo 2: +Desenvolvimento com sustentabilidade</option>
+                <option value="resultados">Eixo 3: +Resultados</option>
+              </select>
+            </label>
+            <div class="strategic-field-group">
+              <span>Área Temática</span>
+              <div class="strategic-multiselect disabled" id="strategicArea">
+                <button type="button" id="strategicAreaButton" aria-label="Área Temática" aria-expanded="false" disabled>
+                  <span id="strategicAreaValue">Selecionar...</span><b>⌄</b>
+                </button>
+                <div class="strategic-area-options" id="strategicAreaOptions" hidden>
+                  <label><input type="checkbox" value="Agricultura e Meio Ambiente"><span>Agricultura e Meio Ambiente</span></label>
+                  <label><input type="checkbox" value="Desenvolvimento Econômico, Ciência, Tecnologia, Inovação e Turismo"><span>Desenvolvimento Econômico, Ciência, Tecnologia, Inovação e Turismo</span></label>
+                  <label><input type="checkbox" value="Infraestrutura"><span>Infraestrutura</span></label>
+                  <label><input type="checkbox" value="Educação, Cultura, Esporte e Lazer"><span>Educação, Cultura, Esporte e Lazer</span></label>
+                  <label><input type="checkbox" value="Segurança Pública e Justiça"><span>Segurança Pública e Justiça</span></label>
+                  <label><input type="checkbox" value="Proteção Social, Saúde e Direitos Humanos"><span>Proteção Social, Saúde e Direitos Humanos</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="strategic-field-group">
+              <span>Desafios</span>
+              <div class="strategic-multiselect disabled" id="strategicChallenge">
+                <button type="button" id="strategicChallengeButton" aria-label="Desafios" aria-expanded="false" disabled>
+                  <span id="strategicChallengeValue">Selecionar...</span><b>⌄</b>
+                </button>
+                <div class="strategic-area-options strategic-challenge-options" id="strategicChallengeOptions" hidden>
+                  <label><input type="checkbox" value="Acelerar a transformação digital da economia capixaba"><span>Acelerar a transformação digital da economia capixaba</span></label>
+                  <label><input type="checkbox" value="Agilizar os processos de licenciamento ambiental e outorga para uso da água"><span>Agilizar os processos de licenciamento ambiental e outorga para uso da água</span></label>
+                  <label><input type="checkbox" value="Ampliar e fortalecer a atuação do ecossistema capixaba de C,T&I no desenvolvimento"><span>Ampliar e fortalecer a atuação do ecossistema capixaba de C,T&amp;I no desenvolvimento</span></label>
+                  <label><input type="checkbox" value="Ampliar e qualificar a infraestrutura logística"><span>Ampliar e qualificar a infraestrutura logística</span></label>
+                  <label><input type="checkbox" value="Apoiar o desenvolvimento da agricultura familiar por meio de novas tecnologias sustentáveis com foco na inclusão social e no desenvolvimento"><span>Apoiar o desenvolvimento da agricultura familiar por meio de novas tecnologias sustentáveis com foco na inclusão social e no desenvolvimento</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="strategic-field-group strategic-indicator-field">
+              <span>Selecione o Indicador Estratégico</span>
+              <div class="strategic-multiselect disabled" id="strategicIndicator">
+                <button type="button" id="strategicIndicatorButton" aria-label="Selecione o Indicador Estratégico" aria-expanded="false" disabled>
+                  <span id="strategicIndicatorValue">Selecionar...</span><b>⌄</b>
+                </button>
+                <div class="strategic-area-options strategic-indicator-options" id="strategicIndicatorOptions" hidden>
+                  <div class="strategic-indicator-search">
+                    <input id="strategicIndicatorSearch" type="search" placeholder="Procurar indicador" aria-label="Procurar indicador estratégico">
+                    <i aria-hidden="true">⌕</i>
+                  </div>
+                  <label class="select-all-indicators"><input type="checkbox" id="selectAllIndicators"><span>Selecionar todos</span></label>
+                  <label class="indicator-option"><input type="checkbox" value="Taxa de roubos a pessoa em via pública por 100 mil habitantes"><span>Taxa de roubos a pessoa em via pública por 100 mil habitantes</span></label>
+                  <label class="indicator-option"><input type="checkbox" value="Número de matrículas em educação profissional técnica de nível médio na rede pública estadual e privada com bolsa"><span>Número de matrículas em educação profissional técnica de nível médio na rede pública estadual e privada com bolsa</span></label>
+                  <label class="indicator-option"><input type="checkbox" value="Percentual de reincidência"><span>Percentual de reincidência</span></label>
+                  <label class="indicator-option"><input type="checkbox" value="Taxa de roubos em estabelecimento comercial por 100 mil habitantes"><span>Taxa de roubos em estabelecimento comercial por 100 mil habitantes</span></label>
+                  <label class="indicator-option"><input type="checkbox" value="Percentual de adolescentes/jovens que estão matriculados nas instituições de ensino"><span>Percentual de adolescentes/jovens que estão matriculados nas instituições de ensino</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="strategic-actions">
+            <a href="index.html" class="back-action">Cancelar</a>
+            <button type="reset" class="reset-action">Restaurar filtros</button>
+            <button type="submit" class="filter-action">Filtrar</button>
+          </div>
+        </div>
+      </section>
+      <section class="selected-indicators" id="selectedIndicators" hidden>
+        <h2>INDICADORES SELECIONADOS <span>*</span></h2>
+        <div class="selected-indicator-grid" id="selectedIndicatorCards"></div>
+        <div class="selected-indicator-actions">
+          <button type="button" class="save-indicators-action" id="saveStrategicIndicators">Salvar</button>
+          <button type="button" class="undo-indicators-action" id="undoStrategicIndicators"><span aria-hidden="true">↶</span> Desfazer</button>
+        </div>
+      </section>
+      <section class="strategic-result" id="strategicResult" hidden aria-live="polite">
+        <strong id="strategicResultTitle">Filtro aplicado</strong>
+        <p id="strategicResultText"></p>
+      </section>
+    </form>
+  </main>
+  <script src="novo-indicador-estrategico.js"></script>
+</body>
+</html>

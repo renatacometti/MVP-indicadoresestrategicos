@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PE 2023-2026 | Indicadores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação do planejamento estratégico">
+      <div class="sidebar-title">
+        <strong>PE 2023-2026</strong>
+        <button class="icon-btn plain" id="collapseSidebar" aria-label="Recolher menu">◴</button>
+      </div>
+
+      <nav class="tree">
+        <button class="tree-row selected" data-expand="portfolio"><span>▣</span><span>Realiza+</span><b>⌄</b></button>
+        <div id="portfolio" class="tree-children open">
+          <button class="tree-row" data-expand="axis1"><span>⌘</span><span>Eixo 1: +Qualidade de vida</span><b>⌄</b></button>
+          <div id="axis1" class="tree-children open indent-1">
+            <button class="tree-row" data-expand="area"><span>▰</span><span>Educação, Cultura, Esporte<br>e Lazer</span><b>⌄</b></button>
+            <div id="area" class="tree-children open indent-1">
+              <button class="tree-row"><span>⚙</span><span>Cultura ES</span><b>›</b></button>
+              <button class="tree-row"><span>⚙</span><span>EsportES</span><b>›</b></button>
+              <button class="tree-row"><span>⚙</span><span>Melhoria da Qualidade<br>da Educação</span><b>›</b></button>
+            </div>
+            <button class="tree-row"><span>▰</span><span>Segurança Pública e<br>Justiça</span><b>›</b></button>
+            <button class="tree-row"><span>▰</span><span>Prot.Social, Saúde e<br>Dir.Humanos</span><b>›</b></button>
+          </div>
+          <button class="tree-row"><span>⌘</span><span>Eixo 2: +Des. com<br>sustentabilidade</span><b>›</b></button>
+          <button class="tree-row"><span>⌘</span><span>Eixo 3: +Resultados</span><b>›</b></button>
+        </div>
+      </nav>
+    </aside>
+
+    <button class="sidebar-handle" id="openSidebar" aria-label="Abrir menu">›</button>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="brand"><strong>PMO-ES</strong><span>PE 2023-2026</span></div>
+        <div class="breadcrumbs" aria-label="Caminho do projeto">
+          <div class="home-icon" aria-hidden="true"><span>◆</span></div>
+          <span class="separator">›</span>
+          <div class="crumb"><em>Portfólio</em><small>Realiza+</small></div>
+          <span class="separator">›</span>
+          <div class="crumb wide"><em>Eixo</em><small>Eixo 1: +Qualidade de vida</small></div>
+          <span class="separator">›</span>
+          <div class="crumb wider"><em>Área Temática</em><small>Educação, Cultura, Esporte e Lazer</small></div>
+          <span class="separator">›</span>
+          <div class="crumb"><em>Programa</em><small>Cultura ES</small></div>
+          <span class="separator">›</span>
+          <div class="crumb current"><em>Projeto</em><small>Cais das Artes</small></div>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <div class="project-line">
+          <div>Projeto: <strong>Cais das Artes</strong></div>
+          <div class="project-tools">
+            <button class="square primary" aria-label="Pesquisar">⌕</button>
+            <button class="star" aria-label="Favoritar">☆</button>
+            <button class="square view-switch" data-view="list" aria-label="Visualização em lista">☷</button>
+            <button class="square view-switch active" data-view="grid" aria-label="Visualização em grade">⊞</button>
+            <select aria-label="Quantidade por página"><option>30</option><option>60</option><option>90</option></select>
+          </div>
+        </div>
+
+        <div class="tabs-wrap">
+          <button class="tabs-arrow left" aria-label="Rolar abas para esquerda">‹</button>
+          <div class="tabs" id="tabs">
+            <button>Painel de Controle</button><button>EAP</button><button>Propriedades</button><button>Etapas</button>
+            <button>Partes interessadas e permissões</button><button>Centros de Custo</button><button class="active">Indicadores</button>
+            <button>Linhas de base</button><button>Riscos</button><button>Ocorrências</button><button>Processos</button><button>Diário</button>
+          </div>
+          <button class="tabs-arrow right" aria-label="Rolar abas para direita">›</button>
+        </div>
+
+        <section class="indicator-panel grouped-panel">
+          <div class="panel-toolbar">
+            <button class="square primary" id="searchToggle" aria-label="Buscar indicador">⌕</button>
+            <label>Exibir</label>
+            <select id="statusFilter" aria-label="Filtrar indicadores"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
+            <button class="add-small" id="addTop" aria-label="Adicionar indicador">＋</button>
+          </div>
+          <div class="search-box" id="searchBox">
+            <input id="indicatorSearch" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador">
+          </div>
+
+          <div class="indicator-groups">
+            <section class="indicator-group" data-group="project" data-accordion>
+              <button class="indicator-group-heading" aria-expanded="true">
+                <span>Indicadores de projeto <small>1</small></span><b>⌃</b>
+              </button>
+              <div class="indicator-group-body">
+                <div class="cards" id="cards">
+                  <a class="indicator-card clickable" data-status="active" href="indicator.html" aria-label="Abrir indicador Percentual de conclusão da obra">
+                    <span class="more" aria-hidden="true">⋮</span>
+                    <div class="gauge" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span></span></div>
+                    <h2>Percentual de conclusão da obra</h2>
+                    <small>376173</small>
+                  </a>
+                  <a class="add-card project-add" href="novo-indicador.html" aria-label="Adicionar indicador de projeto">＋</a>
+                </div>
+                <div class="empty-state">Nenhum indicador encontrado.</div>
+              </div>
+            </section>
+
+            <section class="indicator-group collapsed" data-group="strategic" data-accordion>
+              <button class="indicator-group-heading" aria-expanded="false">
+                <span>Indicadores estratégicos <small>0</small></span><b>⌃</b>
+              </button>
+              <div class="indicator-group-body">
+                <div class="cards">
+                  <a class="add-card strategic-add" href="novo-indicador-estrategico.html" aria-label="Adicionar indicador estratégico">＋</a>
+                </div>
+                <div class="empty-state">Nenhum indicador estratégico cadastrado.</div>
+              </div>
+            </section>
+
+            <section class="indicator-group collapsed" data-group="es500" data-accordion>
+              <button class="indicator-group-heading" aria-expanded="false">
+                <span>ES 500 anos <small>0</small></span><b>⌃</b>
+              </button>
+              <div class="indicator-group-body">
+                <div class="cards">
+                  <button class="add-card group-add" data-group="es500" aria-label="Adicionar indicador ES 500 anos">＋</button>
+                </div>
+                <div class="empty-state">Nenhum indicador ES 500 anos cadastrado.</div>
+              </div>
+            </section>
+
+            <section class="indicator-group collapsed" data-group="ods" data-accordion>
+              <button class="indicator-group-heading" aria-expanded="false">
+                <span>Objetivos de Desenvolvimento Sustentável (ODS) <small>2</small></span><b>⌃</b>
+              </button>
+              <div class="indicator-group-body">
+                <div class="cards">
+                  <article class="indicator-card ods-card" data-status="active">
+                    <button class="more" aria-label="Mais opções">⋮</button>
+                    <div class="gear-symbol" aria-hidden="true">⚙</div>
+                    <h2>Fome zero e agricultura<br>sustentável</h2>
+                    <small>1556134</small>
+                  </article>
+                  <article class="indicator-card ods-card" data-status="active">
+                    <button class="more" aria-label="Mais opções">⋮</button>
+                    <div class="gear-symbol" aria-hidden="true">⚙</div>
+                    <h2>Erradicação da pobreza</h2>
+                    <small>1556132</small>
+                  </article>
+                  <a class="add-card ods-add" href="novo-indicador-ods.html" aria-label="Adicionar indicador ODS">＋</a>
+                </div>
+                <div class="empty-state">Nenhum Objetivo de Desenvolvimento Sustentável encontrado.</div>
+              </div>
+            </section>
+          </div>
+          <div class="pagination"><button>«</button><button>‹</button><select aria-label="Página"><option>1 of 1</option></select><button>›</button><button>»</button></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="indicatorDialog">
+    <form method="dialog" id="indicatorForm">
+      <div class="dialog-title"><strong>Novo indicador</strong><button type="button" data-close-dialog aria-label="Fechar">×</button></div>
+            <input id="indicatorGroup" type="hidden" value="project">
+            <label>Nome do indicador<input id="indicatorName" required placeholder="Ex.: Índice de execução"></label>
+      <label>Código<input id="indicatorCode" inputmode="numeric" placeholder="Ex.: 376174"></label>
+      <div class="dialog-actions"><button type="button" data-close-dialog class="secondary">Cancelar</button><button value="default" id="saveIndicator" class="primary-action">Adicionar</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="odsDialog" class="ods-dialog">
+    <form method="dialog" id="odsForm">
+      <div class="ods-dialog-title">
+        <strong>Objetivos de Desenvolvimento Sustentável (ODS)</strong>
+        <button type="button" id="closeOdsDialog" aria-label="Fechar seleção de ODS">×</button>
+      </div>
+
+      <div class="ods-select-label"><span>Selecione</span><b>⌄</b></div>
+      <div class="ods-picker">
+        <div class="ods-search-wrap">
+          <input id="odsSearch" type="search" placeholder="Procurar" aria-label="Procurar Objetivo de Desenvolvimento Sustentável">
+          <span aria-hidden="true">⌕</span>
+        </div>
+        <div class="ods-options" id="odsOptions">
+          <label><input type="checkbox" value="Saúde e bem-estar" data-code="1556135"><span>Saúde e bem-estar</span></label>
+          <label><input type="checkbox" value="Educação de qualidade" data-code="1556136"><span>Educação de qualidade</span></label>
+          <label><input type="checkbox" value="Igualdade de gênero" data-code="1556137"><span>Igualdade de gênero</span></label>
+          <label><input type="checkbox" value="Água potável e saneamento" data-code="1556138"><span>Água potável e saneamento</span></label>
+          <label><input type="checkbox" value="Energia limpa e acessível" data-code="1556139"><span>Energia limpa e acessível</span></label>
+          <label><input type="checkbox" value="Trabalho decente e crescimento econômico" data-code="1556140"><span>Trabalho decente e crescimento econômico</span></label>
+          <label><input type="checkbox" value="Indústria, inovação e infraestrutura" data-code="1556141"><span>Indústria, inovação e infraestrutura</span></label>
+          <label><input type="checkbox" value="Redução das desigualdades" data-code="1556142"><span>Redução das desigualdades</span></label>
+          <label><input type="checkbox" value="Cidades e comunidades sustentáveis" data-code="1556143"><span>Cidades e comunidades sustentáveis</span></label>
+          <label><input type="checkbox" value="Consumo e produção responsáveis" data-code="1556144"><span>Consumo e produção responsáveis</span></label>
+          <label><input type="checkbox" value="Ação contra a mudança global do clima" data-code="1556145"><span>Ação contra a mudança global do clima</span></label>
+          <label><input type="checkbox" value="Vida na água" data-code="1556146"><span>Vida na água</span></label>
+          <label><input type="checkbox" value="Vida terrestre" data-code="1556147"><span>Vida terrestre</span></label>
+          <label><input type="checkbox" value="Paz, justiça e instituições eficazes" data-code="1556148"><span>Paz, justiça e instituições eficazes</span></label>
+          <label><input type="checkbox" value="Parcerias e meios de implementação" data-code="1556149"><span>Parcerias e meios de implementação</span></label>
+        </div>
+      </div>
+      <div class="ods-dialog-actions">
+        <button type="button" id="cancelOds" class="secondary">Cancelar</button>
+        <button type="button" id="addSelectedOds" class="primary-action" disabled>Adicionar <span id="odsSelectedCount">0</span></button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

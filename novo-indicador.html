@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo indicador de projeto</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="novo-indicador.css">
+</head>
+<body class="new-indicator-page">
+  <main class="new-indicator-main">
+    <h1>Novo Indicador</h1>
+
+    <form id="newIndicatorForm" novalidate>
+      <section class="new-properties">
+        <h2>PROPRIEDADES</h2>
+
+        <label class="new-field name-field">
+          <span>Nome * <i title="Campo obrigatório">?</i></span>
+          <input id="newName" name="name" required aria-describedby="nameError">
+          <strong class="required-message" id="nameError">Campo obrigatório</strong>
+        </label>
+
+        <label class="new-field description-new-field">
+          <span>Descrição * <i title="Campo obrigatório">?</i></span>
+          <textarea id="newDescription" name="description" required aria-describedby="descriptionError"></textarea>
+          <strong class="required-message" id="descriptionError">Campo obrigatório</strong>
+        </label>
+
+        <div class="new-field-stack">
+          <label class="new-field">
+            <span>Fonte</span>
+            <select name="source" aria-label="Fonte">
+              <option value="" selected></option>
+              <option>SECULT</option><option>SEPLAN</option><option>Outra</option>
+            </select>
+          </label>
+
+          <label class="new-field">
+            <span>Medida</span>
+            <select name="measure" aria-label="Medida">
+              <option value="" selected></option>
+              <option>%</option><option>Unidade</option><option>R$</option><option>Índice</option>
+            </select>
+          </label>
+
+          <label class="new-field">
+            <span>Data Início</span>
+            <span class="new-date"><input name="startDate" inputmode="numeric" aria-label="Data de início"><button type="button" aria-label="Selecionar data de início">▦</button></span>
+          </label>
+
+          <label class="new-field">
+            <span>Data Fim</span>
+            <span class="new-date"><input name="endDate" inputmode="numeric" aria-label="Data de fim"><button type="button" aria-label="Selecionar data de fim">▦</button></span>
+          </label>
+
+          <label class="new-field">
+            <span>Periodicidade</span>
+            <select name="periodicity" aria-label="Periodicidade">
+              <option value="" selected></option>
+              <option>Mensal</option><option>Trimestral</option><option>Semestral</option><option>Anual</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <div class="new-form-actions">
+        <a href="index.html">Cancelar</a>
+        <button type="submit">Salvar</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="novo-indicador.js"></script>
+</body>
+</html>
