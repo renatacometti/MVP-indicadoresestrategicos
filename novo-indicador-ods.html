@@ -36,27 +36,34 @@
           <span>PROPRIEDADES</span><b>⌃</b>
         </button>
         <div class="strategic-properties-body ods-properties-body">
-          <label class="ods-page-search">
+          <div class="strategic-field-group ods-field">
             <span>Objetivos de Desenvolvimento Sustentável (ODS)</span>
-            <span class="ods-page-search-box"><input id="odsPageSearch" type="search" placeholder="Procurar" aria-label="Procurar ODS"><i aria-hidden="true">⌕</i></span>
-          </label>
-
-          <div class="ods-page-options" id="odsPageOptions">
-            <label><input type="checkbox" value="Saúde e bem-estar" data-code="1556135"><span>Saúde e bem-estar</span></label>
-            <label><input type="checkbox" value="Educação de qualidade" data-code="1556136"><span>Educação de qualidade</span></label>
-            <label><input type="checkbox" value="Igualdade de gênero" data-code="1556137"><span>Igualdade de gênero</span></label>
-            <label><input type="checkbox" value="Água potável e saneamento" data-code="1556138"><span>Água potável e saneamento</span></label>
-            <label><input type="checkbox" value="Energia limpa e acessível" data-code="1556139"><span>Energia limpa e acessível</span></label>
-            <label><input type="checkbox" value="Trabalho decente e crescimento econômico" data-code="1556140"><span>Trabalho decente e crescimento econômico</span></label>
-            <label><input type="checkbox" value="Indústria, inovação e infraestrutura" data-code="1556141"><span>Indústria, inovação e infraestrutura</span></label>
-            <label><input type="checkbox" value="Redução das desigualdades" data-code="1556142"><span>Redução das desigualdades</span></label>
-            <label><input type="checkbox" value="Cidades e comunidades sustentáveis" data-code="1556143"><span>Cidades e comunidades sustentáveis</span></label>
-            <label><input type="checkbox" value="Consumo e produção responsáveis" data-code="1556144"><span>Consumo e produção responsáveis</span></label>
-            <label><input type="checkbox" value="Ação contra a mudança global do clima" data-code="1556145"><span>Ação contra a mudança global do clima</span></label>
-            <label><input type="checkbox" value="Vida na água" data-code="1556146"><span>Vida na água</span></label>
-            <label><input type="checkbox" value="Vida terrestre" data-code="1556147"><span>Vida terrestre</span></label>
-            <label><input type="checkbox" value="Paz, justiça e instituições eficazes" data-code="1556148"><span>Paz, justiça e instituições eficazes</span></label>
-            <label><input type="checkbox" value="Parcerias e meios de implementação" data-code="1556149"><span>Parcerias e meios de implementação</span></label>
+            <div class="strategic-multiselect" id="odsPageSelect">
+              <button type="button" id="odsPageButton" aria-label="Objetivos de Desenvolvimento Sustentável (ODS)" aria-expanded="false">
+                <span id="odsPageValue">Selecionar...</span><b>⌄</b>
+              </button>
+              <div class="strategic-area-options ods-page-options" id="odsPageOptions" hidden>
+                <div class="strategic-indicator-search">
+                  <input id="odsPageSearch" type="search" placeholder="Procurar ODS" aria-label="Procurar ODS">
+                  <i aria-hidden="true">⌕</i>
+                </div>
+                <label><input type="checkbox" value="Saúde e bem-estar" data-code="1556135"><span>Saúde e bem-estar</span></label>
+                <label><input type="checkbox" value="Educação de qualidade" data-code="1556136"><span>Educação de qualidade</span></label>
+                <label><input type="checkbox" value="Igualdade de gênero" data-code="1556137"><span>Igualdade de gênero</span></label>
+                <label><input type="checkbox" value="Água potável e saneamento" data-code="1556138"><span>Água potável e saneamento</span></label>
+                <label><input type="checkbox" value="Energia limpa e acessível" data-code="1556139"><span>Energia limpa e acessível</span></label>
+                <label><input type="checkbox" value="Trabalho decente e crescimento econômico" data-code="1556140"><span>Trabalho decente e crescimento econômico</span></label>
+                <label><input type="checkbox" value="Indústria, inovação e infraestrutura" data-code="1556141"><span>Indústria, inovação e infraestrutura</span></label>
+                <label><input type="checkbox" value="Redução das desigualdades" data-code="1556142"><span>Redução das desigualdades</span></label>
+                <label><input type="checkbox" value="Cidades e comunidades sustentáveis" data-code="1556143"><span>Cidades e comunidades sustentáveis</span></label>
+                <label><input type="checkbox" value="Consumo e produção responsáveis" data-code="1556144"><span>Consumo e produção responsáveis</span></label>
+                <label><input type="checkbox" value="Ação contra a mudança global do clima" data-code="1556145"><span>Ação contra a mudança global do clima</span></label>
+                <label><input type="checkbox" value="Vida na água" data-code="1556146"><span>Vida na água</span></label>
+                <label><input type="checkbox" value="Vida terrestre" data-code="1556147"><span>Vida terrestre</span></label>
+                <label><input type="checkbox" value="Paz, justiça e instituições eficazes" data-code="1556148"><span>Paz, justiça e instituições eficazes</span></label>
+                <label><input type="checkbox" value="Parcerias e meios de implementação" data-code="1556149"><span>Parcerias e meios de implementação</span></label>
+              </div>
+            </div>
           </div>
 
           <div class="strategic-actions ods-page-actions">

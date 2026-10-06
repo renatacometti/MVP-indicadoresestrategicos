@@ -26,40 +26,60 @@ document.querySelectorAll('.view-switch').forEach(button => button.addEventListe
   document.querySelectorAll('.cards').forEach(groupCards => groupCards.classList.toggle('list', button.dataset.view === 'list'));
 }));
 
-document.querySelectorAll('[data-accordion] > .indicator-group-heading').forEach(button => {
-  button.addEventListener('click', () => {
-    const group = button.closest('[data-accordion]');
-    const collapsed = group.classList.toggle('collapsed');
-    button.setAttribute('aria-expanded', String(!collapsed));
+const indicatorCategoryTabs = [...document.querySelectorAll('[data-indicator-tab]')];
+
+function activateIndicatorTab(group, focus = false) {
+  indicatorCategoryTabs.forEach(button => {
+    const active = button.dataset.indicatorTab === group;
+    button.setAttribute('aria-selected', String(active));
+    button.tabIndex = active ? 0 : -1;
+    document.querySelector(`.indicator-group[data-group="${button.dataset.indicatorTab}"]`).hidden = !active;
+    if (active && focus) button.focus();
+  });
+}
+
+indicatorCategoryTabs.forEach((button, index) => {
+  button.addEventListener('click', () => activateIndicatorTab(button.dataset.indicatorTab));
+  button.addEventListener('keydown', event => {
+    let nextIndex = index;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % indicatorCategoryTabs.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + indicatorCategoryTabs.length) % indicatorCategoryTabs.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = indicatorCategoryTabs.length - 1;
+    else return;
+    event.preventDefault();
+    activateIndicatorTab(indicatorCategoryTabs[nextIndex].dataset.indicatorTab, true);
   });
 });
 
-const searchBox = document.querySelector('#searchBox');
-const searchInput = document.querySelector('#indicatorSearch');
-document.querySelector('#searchToggle').addEventListener('click', () => {
-  searchBox.classList.toggle('open');
-  if (searchBox.classList.contains('open')) searchInput.focus();
-});
+const indicatorTabParams = new URLSearchParams(window.location.search);
+const requestedIndicatorTab = indicatorTabParams.has('strategic') ? 'strategic' : indicatorTabParams.get('tab');
+activateIndicatorTab(indicatorCategoryTabs.some(button => button.dataset.indicatorTab === requestedIndicatorTab) ? requestedIndicatorTab : 'project');
 
-function filterCards() {
-  const term = searchInput.value.trim().toLowerCase();
-  const status = document.querySelector('#statusFilter').value;
-  let visible = 0;
-  document.querySelectorAll('.indicator-card').forEach(card => {
+function filterGroupCards(group) {
+  const searchInput = group.querySelector('.group-indicator-search');
+  const term = searchInput.value.trim().toLocaleLowerCase('pt-BR');
+  const status = group.querySelector('.group-status-filter').value;
+  const groupCards = [...group.querySelectorAll('.indicator-card')];
+  groupCards.forEach(card => {
     const matchesText = card.textContent.toLowerCase().includes(term);
     const matchesStatus = status === 'all' || card.dataset.status === status;
     card.hidden = !(matchesText && matchesStatus);
-    if (!card.hidden) visible++;
   });
-  document.querySelectorAll('.indicator-group').forEach(group => {
-    const groupCards = [...group.querySelectorAll('.indicator-card')];
-    const groupVisible = groupCards.filter(card => !card.hidden).length;
-    const empty = group.querySelector('.empty-state');
-    empty.classList.toggle('show', groupCards.length > 0 && groupVisible === 0);
-  });
+  const groupVisible = groupCards.filter(card => !card.hidden).length;
+  group.querySelector('.empty-state').classList.toggle('show', groupVisible === 0);
 }
-searchInput.addEventListener('input', filterCards);
-document.querySelector('#statusFilter').addEventListener('change', filterCards);
+
+document.querySelectorAll('.indicator-group').forEach(group => {
+  const searchBox = group.querySelector('.group-search-box');
+  const searchInput = group.querySelector('.group-indicator-search');
+  group.querySelector('.group-search-toggle').addEventListener('click', () => {
+    searchBox.classList.toggle('open');
+    if (searchBox.classList.contains('open')) searchInput.focus();
+  });
+  searchInput.addEventListener('input', () => filterGroupCards(group));
+  group.querySelector('.group-status-filter').addEventListener('change', () => filterGroupCards(group));
+});
 
 const dialog = document.querySelector('#indicatorDialog');
 function openDialog(group = 'project') {
@@ -75,7 +95,6 @@ document.querySelectorAll('.group-add').forEach(button => button.addEventListene
     openDialog(button.dataset.group);
   }
 }));
-document.querySelector('#addTop').addEventListener('click', () => { window.location.href = 'novo-indicador.html'; });
 document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => dialog.close()));
 
 const odsDialog = document.querySelector('#odsDialog');
@@ -119,8 +138,6 @@ odsAddButton.addEventListener('click', () => {
     odsCards.insertBefore(article, odsGroup.querySelector('.group-add'));
     checkbox.closest('label').remove();
   });
-  const total = odsGroup.querySelectorAll('.indicator-card').length;
-  odsGroup.querySelector('.indicator-group-heading small').textContent = total;
   closeOdsDialog();
 });
 
@@ -139,7 +156,6 @@ try {
     article.querySelector('small').textContent = item.code;
     odsCards.insertBefore(article, odsGroup.querySelector('.ods-add'));
   });
-  odsGroup.querySelector('.indicator-group-heading small').textContent = odsGroup.querySelectorAll('.indicator-card').length;
 } catch (error) {
   localStorage.removeItem('selectedOds');
 }
@@ -170,14 +186,28 @@ try { localStorage.setItem('selectedStrategicIndicators', JSON.stringify(savedSt
 savedStrategic.forEach(item => {
   strategicCards.insertBefore(createStrategicCard(item), strategicGroup.querySelector('.strategic-add'));
 });
-const strategicTotal = strategicGroup.querySelectorAll('.indicator-card').length;
-strategicGroup.querySelector('.indicator-group-heading small').textContent = strategicTotal;
-if (strategicTotal) {
-  strategicGroup.classList.remove('collapsed');
-  strategicGroup.querySelector('.indicator-group-heading').setAttribute('aria-expanded', 'true');
-}
 if (strategicParams.has('strategic')) {
   try { history.replaceState(null, '', window.location.pathname); } catch (error) { /* file preview */ }
+}
+
+const es500Group = document.querySelector('.indicator-group[data-group="es500"]');
+const es500Cards = es500Group.querySelector('.cards');
+try {
+  const savedEs500 = JSON.parse(localStorage.getItem('selectedEs500Indicators') || '[]');
+  if (Array.isArray(savedEs500)) {
+    savedEs500.forEach(item => {
+      const article = document.createElement('article');
+      article.className = 'indicator-card ods-card es500-card';
+      article.dataset.status = 'active';
+      article.title = item.meta;
+      article.innerHTML = '<button class="more" aria-label="Mais opções">⋮</button><div class="gear-symbol" aria-hidden="true">⚙</div><h2></h2><small></small>';
+      article.querySelector('h2').textContent = item.indicator;
+      article.querySelector('small').textContent = item.mission;
+      es500Cards.insertBefore(article, es500Group.querySelector('.es500-add'));
+    });
+  }
+} catch (error) {
+  localStorage.removeItem('selectedEs500Indicators');
 }
 
 document.querySelector('#saveIndicator').addEventListener('click', event => {
@@ -194,14 +224,11 @@ document.querySelector('#saveIndicator').addEventListener('click', event => {
   const targetGroup = document.querySelector(`.indicator-group[data-group="${document.querySelector('#indicatorGroup').value}"]`);
   const targetCards = targetGroup.querySelector('.cards');
   targetCards.insertBefore(article, targetGroup.querySelector('.group-add'));
-  const count = targetGroup.querySelectorAll('.indicator-card').length;
-  targetGroup.querySelector('.indicator-group-heading small').textContent = count;
   targetGroup.querySelector('.empty-state').classList.remove('show');
-  targetGroup.classList.remove('collapsed');
-  targetGroup.querySelector('.indicator-group-heading').setAttribute('aria-expanded', 'true');
+  activateIndicatorTab(targetGroup.dataset.group);
   document.querySelector('#indicatorForm').reset();
   dialog.close();
-  filterCards();
+  filterGroupCards(targetGroup);
 });
 
 document.querySelector('.star').addEventListener('click', event => {
@@ -209,4 +236,6 @@ document.querySelector('.star').addEventListener('click', event => {
   event.currentTarget.textContent = on ? '★' : '☆';
   event.currentTarget.style.color = on ? '#e89a16' : '#919ba0';
 });
+
+document.querySelectorAll('.indicator-group').forEach(filterGroupCards);
 

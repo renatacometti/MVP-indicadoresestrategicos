@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Novo indicador ES 500 Anos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="novo-indicador-estrategico.css">
+  <link rel="stylesheet" href="novo-indicador-es500.css">
+</head>
+<body class="strategic-system-page es500-system-page">
+  <header class="topbar strategic-topbar">
+    <div class="brand"><strong>PMO-ES</strong><span>PE 2023-2026</span></div>
+    <a class="strategic-home" href="index.html?tab=es500" aria-label="Voltar aos indicadores">◆</a>
+    <div class="breadcrumbs" aria-label="Caminho do novo indicador ES 500 Anos">
+      <span class="separator">›</span>
+      <div class="crumb"><em>Portfólio</em><small>Realiza+</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wide"><em>Eixo</em><small>Eixo 1: +Qualidade de vida</small></div>
+      <span class="separator">›</span>
+      <div class="crumb wider"><em>Área Temática</em><small>Educação, Cultura, Esporte e Lazer</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Programa</em><small>Cultura ES</small></div>
+      <span class="separator">›</span>
+      <div class="crumb"><em>Projeto</em><small>Cais das Artes</small></div>
+      <span class="separator">›</span>
+      <div class="crumb current es500-crumb"><em>Indicador</em><small>ES 500 Anos</small></div>
+    </div>
+  </header>
+
+  <main class="strategic-system-content es500-system-content">
+    <h1>Novo Indicador ES 500 Anos</h1>
+    <form id="es500Form">
+      <section class="strategic-properties" id="es500Properties">
+        <button type="button" class="strategic-section-heading" id="toggleEs500Properties" aria-expanded="true">
+          <span>PROPRIEDADES</span><b>⌃</b>
+        </button>
+        <div class="strategic-properties-body es500-properties-body">
+          <div class="strategic-fields es500-fields">
+            <label>
+              <span>Missão</span>
+              <select id="es500Mission" aria-label="Missão" required>
+                <option value="" selected>Selecionar...</option>
+                <option value="1">Missão 1</option>
+                <option value="2">Missão 2</option>
+                <option value="3">Missão 3</option>
+                <option value="4">Missão 4</option>
+                <option value="5">Missão 5</option>
+              </select>
+            </label>
+            <label>
+              <span>Meta</span>
+              <select id="es500Goal" aria-label="Meta" required disabled>
+                <option value="" selected>Selecione primeiro uma missão...</option>
+              </select>
+            </label>
+          </div>
+
+          <section class="es500-summary" id="es500Summary" aria-live="polite" hidden>
+            <span>INDICADOR VINCULADO</span>
+            <h2 id="es500IndicatorName"></h2>
+            <p><strong>Meta:</strong> <span id="es500GoalText"></span></p>
+          </section>
+
+          <div class="strategic-actions es500-actions">
+            <a href="index.html?tab=es500" class="back-action">Cancelar</a>
+            <button type="reset" class="reset-action">Restaurar</button>
+            <button type="submit" class="filter-action" id="saveEs500" disabled>Adicionar</button>
+          </div>
+        </div>
+      </section>
+    </form>
+  </main>
+  <script src="novo-indicador-es500.js"></script>
+</body>
+</html>

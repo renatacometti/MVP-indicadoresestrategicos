@@ -1,7 +1,10 @@
 const odsProperties = document.querySelector('#odsProperties');
 const odsPropertiesToggle = document.querySelector('#toggleOdsProperties');
+const odsPageSelect = document.querySelector('#odsPageSelect');
+const odsPageButton = document.querySelector('#odsPageButton');
+const odsPageOptions = document.querySelector('#odsPageOptions');
 const odsPageSearch = document.querySelector('#odsPageSearch');
-const odsPageCheckboxes = [...document.querySelectorAll('#odsPageOptions input[type="checkbox"]')];
+const odsPageCheckboxes = [...odsPageOptions.querySelectorAll('input[type="checkbox"]')];
 const saveOdsPage = document.querySelector('#saveOdsPage');
 
 odsPropertiesToggle.addEventListener('click', () => {
@@ -10,10 +13,29 @@ odsPropertiesToggle.addEventListener('click', () => {
 });
 
 function updateOdsPageSelection() {
-  const selected = odsPageCheckboxes.filter(checkbox => checkbox.checked).length;
-  document.querySelector('#odsPageCount').textContent = selected;
-  saveOdsPage.disabled = selected === 0;
+  const selected = odsPageCheckboxes.filter(checkbox => checkbox.checked);
+  document.querySelector('#odsPageCount').textContent = selected.length;
+  document.querySelector('#odsPageValue').textContent = selected.length === 0
+    ? 'Selecionar...'
+    : selected.length === 1 ? selected[0].value : `${selected.length} objetivos selecionados`;
+  saveOdsPage.disabled = selected.length === 0;
 }
+
+function closeOdsPageOptions() {
+  odsPageOptions.hidden = true;
+  odsPageButton.setAttribute('aria-expanded', 'false');
+}
+
+odsPageButton.addEventListener('click', () => {
+  const willOpen = odsPageOptions.hidden;
+  odsPageOptions.hidden = !willOpen;
+  odsPageButton.setAttribute('aria-expanded', String(willOpen));
+  if (willOpen) setTimeout(() => odsPageSearch.focus(), 20);
+});
+
+document.addEventListener('click', event => {
+  if (!odsPageSelect.contains(event.target)) closeOdsPageOptions();
+});
 
 odsPageCheckboxes.forEach(checkbox => checkbox.addEventListener('change', updateOdsPageSelection));
 odsPageSearch.addEventListener('input', () => {
@@ -28,6 +50,7 @@ document.querySelector('#odsPageForm').addEventListener('reset', () => {
     odsPageSearch.value = '';
     odsPageCheckboxes.forEach(checkbox => { checkbox.closest('label').hidden = false; });
     updateOdsPageSelection();
+    closeOdsPageOptions();
   });
 });
 
@@ -39,5 +62,5 @@ document.querySelector('#odsPageForm').addEventListener('submit', event => {
     byCode.set(checkbox.dataset.code, { name: checkbox.value, code: checkbox.dataset.code });
   });
   localStorage.setItem('selectedOds', JSON.stringify([...byCode.values()]));
-  window.location.href = 'index.html';
+  window.location.href = 'index.html?tab=ods';
 });

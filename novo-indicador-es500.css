@@ -1,0 +1,15 @@
+.es500-crumb { width:112px !important; }
+.es500-properties-body { min-height:530px; padding-bottom:76px; }
+.es500-fields { gap:24px; }
+.es500-fields select { font-family:inherit; font-size:14px; }
+.es500-fields select:disabled { color:#a5b2b8; }
+.es500-summary { width:min(680px, 100%); margin-top:30px; padding:18px 20px; border-left:4px solid #43b5a6; background:#f7faf9; color:#62717a; }
+.es500-summary > span { color:#00506e; font-size:12px; font-weight:600; }
+.es500-summary h2 { margin:8px 0 14px; color:#005478; font-size:17px; font-weight:500; line-height:1.4; }
+.es500-summary p { margin:0; padding-top:12px; border-top:1px solid #d8e4e6; font-size:14px; line-height:1.55; }
+.es500-summary strong { color:#7a7480; font-weight:500; }
+.es500-actions .filter-action:disabled { opacity:.45; cursor:not-allowed; }
+@media (max-width:600px) {
+  .es500-properties-body { min-height:560px; }
+  .es500-summary { box-sizing:border-box; }
+}

@@ -77,21 +77,24 @@
         </div>
 
         <section class="indicator-panel grouped-panel">
-          <div class="panel-toolbar">
-            <button class="square primary" id="searchToggle" aria-label="Buscar indicador">⌕</button>
-            <label>Exibir</label>
-            <select id="statusFilter" aria-label="Filtrar indicadores"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
-            <button class="add-small" id="addTop" aria-label="Adicionar indicador">＋</button>
-          </div>
-          <div class="search-box" id="searchBox">
-            <input id="indicatorSearch" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador">
+          <div class="indicator-category-tabs" role="tablist" aria-label="Tipos de indicadores">
+            <button type="button" role="tab" id="indicator-tab-project" data-indicator-tab="project" aria-selected="true" aria-controls="indicator-panel-project">Indicadores de projeto</button>
+            <button type="button" role="tab" id="indicator-tab-strategic" data-indicator-tab="strategic" aria-selected="false" aria-controls="indicator-panel-strategic" tabindex="-1">Indicadores estratégicos</button>
+            <button type="button" role="tab" id="indicator-tab-es500" data-indicator-tab="es500" aria-selected="false" aria-controls="indicator-panel-es500" tabindex="-1">ES 500 anos</button>
+            <button type="button" role="tab" id="indicator-tab-ods" data-indicator-tab="ods" aria-selected="false" aria-controls="indicator-panel-ods" tabindex="-1">ODS</button>
           </div>
 
           <div class="indicator-groups">
-            <section class="indicator-group" data-group="project" data-accordion>
-              <button class="indicator-group-heading" aria-expanded="true">
-                <span>Indicadores de projeto <small>1</small></span><b>⌃</b>
-              </button>
+            <section class="indicator-group" id="indicator-panel-project" data-group="project" role="tabpanel" aria-labelledby="indicator-tab-project">
+              <div class="indicator-group-toolbar">
+                <button class="square primary group-search-toggle" type="button" aria-label="Buscar indicador de projeto">⌕</button>
+                <label>Exibir</label>
+                <select class="group-status-filter" aria-label="Filtrar indicadores de projeto"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
+                <a class="add-small group-add-action" href="novo-indicador.html" aria-label="Adicionar indicador de projeto">＋</a>
+              </div>
+              <div class="group-search-box">
+                <input class="group-indicator-search" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador de projeto">
+              </div>
               <div class="indicator-group-body">
                 <div class="cards" id="cards">
                   <a class="indicator-card clickable" data-status="active" href="indicator.html" aria-label="Abrir indicador Percentual de conclusão da obra">
@@ -106,10 +109,16 @@
               </div>
             </section>
 
-            <section class="indicator-group" data-group="strategic" data-accordion>
-              <button class="indicator-group-heading" aria-expanded="true">
-                <span>Indicadores estratégicos <small>0</small></span><b>⌃</b>
-              </button>
+            <section class="indicator-group" id="indicator-panel-strategic" data-group="strategic" role="tabpanel" aria-labelledby="indicator-tab-strategic" hidden>
+              <div class="indicator-group-toolbar">
+                <button class="square primary group-search-toggle" type="button" aria-label="Buscar indicador estratégico">⌕</button>
+                <label>Exibir</label>
+                <select class="group-status-filter" aria-label="Filtrar indicadores estratégicos"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
+                <a class="add-small group-add-action" href="novo-indicador-estrategico.html" aria-label="Adicionar indicador estratégico">＋</a>
+              </div>
+              <div class="group-search-box">
+                <input class="group-indicator-search" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador estratégico">
+              </div>
               <div class="indicator-group-body">
                 <div class="cards">
                   <a class="add-card strategic-add" href="novo-indicador-estrategico.html" aria-label="Adicionar indicador estratégico">＋</a>
@@ -118,22 +127,34 @@
               </div>
             </section>
 
-            <section class="indicator-group" data-group="es500" data-accordion>
-              <button class="indicator-group-heading" aria-expanded="true">
-                <span>ES 500 anos <small>0</small></span><b>⌃</b>
-              </button>
+            <section class="indicator-group" id="indicator-panel-es500" data-group="es500" role="tabpanel" aria-labelledby="indicator-tab-es500" hidden>
+              <div class="indicator-group-toolbar">
+                <button class="square primary group-search-toggle" type="button" aria-label="Buscar indicador ES 500 anos">⌕</button>
+                <label>Exibir</label>
+                <select class="group-status-filter" aria-label="Filtrar indicadores ES 500 anos"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
+                <a class="add-small group-add-action" href="novo-indicador-es500.html" aria-label="Adicionar indicador ES 500 anos">＋</a>
+              </div>
+              <div class="group-search-box">
+                <input class="group-indicator-search" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador ES 500 anos">
+              </div>
               <div class="indicator-group-body">
                 <div class="cards">
-                  <button class="add-card group-add" data-group="es500" aria-label="Adicionar indicador ES 500 anos">＋</button>
+                  <a class="add-card es500-add" href="novo-indicador-es500.html" aria-label="Adicionar indicador ES 500 anos">＋</a>
                 </div>
                 <div class="empty-state">Nenhum indicador ES 500 anos cadastrado.</div>
               </div>
             </section>
 
-            <section class="indicator-group" data-group="ods" data-accordion>
-              <button class="indicator-group-heading" aria-expanded="true">
-                <span>Objetivos de Desenvolvimento Sustentável (ODS) <small>2</small></span><b>⌃</b>
-              </button>
+            <section class="indicator-group" id="indicator-panel-ods" data-group="ods" role="tabpanel" aria-labelledby="indicator-tab-ods" hidden>
+              <div class="indicator-group-toolbar">
+                <button class="square primary group-search-toggle" type="button" aria-label="Buscar indicador ODS">⌕</button>
+                <label>Exibir</label>
+                <select class="group-status-filter" aria-label="Filtrar indicadores ODS"><option value="all">Todos</option><option value="active">Ativos</option><option value="inactive">Inativos</option></select>
+                <a class="add-small group-add-action" href="novo-indicador-ods.html" aria-label="Adicionar indicador ODS">＋</a>
+              </div>
+              <div class="group-search-box">
+                <input class="group-indicator-search" type="search" placeholder="Pesquisar indicador..." aria-label="Pesquisar indicador ODS">
+              </div>
               <div class="indicator-group-body">
                 <div class="cards">
                   <article class="indicator-card ods-card" data-status="active">
